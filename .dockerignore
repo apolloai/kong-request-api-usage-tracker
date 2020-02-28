@@ -1,0 +1,5 @@
+node_modules/
+src/
+__tests__/
+npm-debug.log
+yarn-error.log

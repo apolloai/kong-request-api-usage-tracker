@@ -1,0 +1,58 @@
+{
+  "api": {
+    "created_at": 1582898028171,
+    "strip_uri": true,
+    "id": "303cd272-dee5-48c6-af75-8e2267adbec2",
+    "hosts": ["api.apollo.ai"],
+    "name": "kraut-debug",
+    "headers": { "host": [null] },
+    "http_if_terminated": false,
+    "https_only": false,
+    "retries": 5,
+    "uris": ["/metrics"],
+    "upstream_url": "http://kraut.kong:3000",
+    "upstream_send_timeout": 60000,
+    "upstream_read_timeout": 60000,
+    "upstream_connect_timeout": 60000,
+    "preserve_host": true
+  },
+  "request": {
+    "querystring": {},
+    "size": "1160",
+    "uri": "/metrics",
+    "request_uri": "http://api.apollo.ai:8000/metrics",
+    "method": "GET",
+    "headers": {
+      "host": "api.apollo.ai",
+      "connection": "Keep-Alive",
+      "upgrade-insecure-requests": "1",
+      "cache-control": "max-age=0",
+      "accept-language": "en-US,en;q=0.9,de;q=0.8",
+      "sec-fetch-mode": "navigate",
+      "accept-encoding": "gzip"
+    }
+  },
+  "client_ip": "162.158.111.34",
+  "latencies": { "request": 16, "kong": 9, "proxy": 7 },
+  "response": {
+    "headers": {
+      "x-kong-proxy-latency": "9",
+      "content-type": "text/plain; charset=utf-8",
+      "date": "Fri, 28 Feb 2020 14:00:02 GMT",
+      "via": "kong/0.11.2",
+      "connection": "close",
+      "x-kong-upstream-latency": "7",
+      "access-control-allow-origin": "*",
+      "content-length": "231"
+    },
+    "status": 200,
+    "size": "476"
+  },
+  "consumer": {
+    "username": "demo",
+    "created_at": 1491847011000,
+    "id": "35b03bfc-7a5b-4a23-a594-aa350c585fa8"
+  },
+  "tries": [{ "balancer_latency": 0, "port": 3000, "ip": "10.42.244.74" }],
+  "started_at": 1582898402979
+}
