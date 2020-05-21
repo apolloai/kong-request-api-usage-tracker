@@ -10,7 +10,6 @@ function harmonizeStatusCode(input: any) {
 
 const server = fastify({
   logger: process.env.LOG_LEVEL ? { level: process.env.LOG_LEVEL } : !!process.env.DEBUG,
-  disableRequestLogging: true,
 });
 
 const apiUsageCounter = new Counter({
@@ -54,9 +53,12 @@ server.post('/', (request, reply) => {
 });
 
 // Run the server!
-server.listen(3000, '0.0.0.0').catch(err => {
-  if (err) {
-    server.log.error(err);
-    process.exit(1);
-  }
-});
+server
+  .listen(Number(process.env.PORT) || 3000, '0.0.0.0')
+  .then(address => console.log(`server listening on ${address}`))
+  .catch(err => {
+    if (err) {
+      server.log.error(err);
+      process.exit(1);
+    }
+  });
