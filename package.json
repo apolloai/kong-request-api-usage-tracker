@@ -47,22 +47,6 @@
     "typescript": "^3.8.2"
   },
   "engines": {
-    "node": ">=8.0.0"
-  },
-  "nyc": {
-    "include": [
-      "src/**/*.ts"
-    ],
-    "exclude": [
-      "lib"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ],
-    "reporter": [],
-    "all": true
+    "node": ">=10.0.0"
   }
 }
