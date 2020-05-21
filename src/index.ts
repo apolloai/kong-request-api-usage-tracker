@@ -33,7 +33,7 @@ server.post('/', (request, reply) => {
   const service = get(request.body, 'service.name', get(request.body, 'api.name'));
   const status = get(request.body, 'response.status') || 200;
   const latency = get(request.body, 'latencies.proxy');
-  const consumer = get(request.body, 'consumer.username', '__anonymous__');
+  const consumer = get(request.body, 'consumer.username', get(request.body, 'consumer.id', '__anonymous__'));
   if (service) {
     server.log.info(`log request to "${service}"`);
     try {
