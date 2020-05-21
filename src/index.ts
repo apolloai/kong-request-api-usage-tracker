@@ -9,7 +9,7 @@ function harmonizeStatusCode(input: any) {
 }
 
 const server = fastify({
-  logger: process.env.DEBUG_LEVEL || !!process.env.DEBUG,
+  logger: process.env.LOG_LEVEL ? { level: process.env.LOG_LEVEL } : !!process.env.DEBUG,
 });
 
 const apiUsageCounter = new Counter({
@@ -35,7 +35,7 @@ server.post('/', (request, reply) => {
   const latency = get(request.body, 'latencies.proxy');
   const consumer = get(request.body, 'consumer.username', get(request.body, 'consumer.id', '__anonymous__'));
   if (service) {
-    server.log.info(`log request to "${service}"`);
+    server.log.trace(`log request to "${service}"`);
     try {
       const labels = compact([service, status, consumer]);
       apiUsageCounter.labels(...labels).inc();
