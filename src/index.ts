@@ -10,6 +10,7 @@ function harmonizeStatusCode(input: any) {
 
 const server = fastify({
   logger: process.env.LOG_LEVEL ? { level: process.env.LOG_LEVEL } : !!process.env.DEBUG,
+  disableRequestLogging: true,
 });
 
 const apiUsageCounter = new Counter({
