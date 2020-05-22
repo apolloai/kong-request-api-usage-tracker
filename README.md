@@ -1,5 +1,9 @@
 # kong-request-api-usage-tracker
 
+![Test](https://github.com/apolloai/kong-request-api-usage-tracker/workflows/Test/badge.svg)
+![CI](https://github.com/apolloai/kong-request-api-usage-tracker/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/apolloai/kong-request-api-usage-tracker/branch/master/graph/badge.svg)](https://codecov.io/gh/apolloai/kong-request-api-usage-tracker)
+
 KRAUT - a prometheus exporter for Kong API usage
 
 ## Development
