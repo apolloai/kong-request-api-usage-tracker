@@ -1,27 +1,28 @@
 {
   "name": "kong-request-api-usage-tracker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "KRAUT - a prometheus exporter for Kong API usage",
   "author": "",
   "private": true,
   "files": [
-    "lib"
+    "dist"
   ],
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
-    "clean": "rm -rf lib",
-    "lint": "eslint \"src/**/*.ts\"",
-    "start": "node lib/index.js",
-    "start:watch": "nodemon lib/index.js",
+    "start": "node dist/index.js",
+    "start:watch": "nodemon",
     "start:generator": "ts-node __tests__/samples/sample-generator.ts",
-    "build": "yarn run lint && echo Using TypeScript && tsc --version && tsc --pretty -p .",
-    "build:docker": "yarn run build && docker build -t apolloai/kraut:latest . && docker push apolloai/kraut:latest",
-    "build:docker:production": "yarn run build && docker build -t apolloai/kraut:production . && docker push apolloai/kraut:production",
+    "build": "tsc",
+    "build:docker": "docker build -t apolloai/kraut:latest . && docker push apolloai/kraut:latest",
+    "build:docker:production": "docker build -t apolloai/kraut:production . && docker push apolloai/kraut:production",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "watch": "yarn run build -- --watch",
-    "watch:test": "yarn run test -- --watch"
+    "test:ci": "yarn test:coverage",
+    "test:ci:unit": "yarn test:ci src/*",
+    "test:ci:integration": "yarn test:ci __tests__/*",
+    "watch": "yarn build --watch",
+    "watch:test": "yarn test --watch"
   },
   "dependencies": {
     "fastify": "~2.14.1",

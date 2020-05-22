@@ -1,5 +1,5 @@
 node_modules/
-src/
+dist/
 __tests__/
 npm-debug.log
 yarn-error.log

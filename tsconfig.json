@@ -1,24 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
-    "declaration": true,
     "module": "commonjs",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "outDir": "./lib",
-    "preserveConstEnums": true,
-    "removeComments": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "outDir": "dist",
     "sourceMap": true,
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
+    "strict": true,
+    "strictNullChecks": false,
+    "target": "es2017",
+    "skipLibCheck": true,
     "experimentalDecorators": true
   },
+  "compileOnSave": true,
   "include": [
-    "src/**/*"
+    "src"
   ],
   "exclude": [
     "node_modules",
-    "**/*-spec.ts"
+    "**/*.spec.ts"
   ]
 }
